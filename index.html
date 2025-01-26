@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cody Lee - IT Manager & Security Engineer</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Cody Lee - IT Manager at Amazon with expertise in security engineering, cloud infrastructure, and team leadership">
+    <meta name="keywords" content="IT Manager, Security Engineer, AWS, Cloud Security, IoT, Amazon">
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Root Variables */
+        :root {
+            --primary-text: #2A2B2E;
+            --secondary-text: #4A4B4F;
+            --background: #F7F7F8;
+            --accent: #D2D3D5;
+            --card-bg: #E8E9EB;
+            --icon-color: #9A9B9F;
+            --banner-bg: #2A2B2E;
+            --banner-text: #F7F7F8;
+            --banner-secondary: #D2D3D5;
+            --banner-accent: #89A2B8;
+            --nav-height: 80px;
+            --section-padding: 80px;
+            --transition-speed: 0.3s;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--primary-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation Banner */
+        .nav-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background-color: var(--banner-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        .nav-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-image {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--banner-accent);
+            box-shadow: 0 0 10px rgba(137, 162, 184, 0.3);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--banner-text);
+        }
+
+        .profile-info p {
+            font-size: 0.9rem;
+            color: var(--banner-secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--banner-secondary);
+            font-size: 1.5rem;
+            transition: transform var(--transition-speed), color var(--transition-speed);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--banner-accent);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: var(--nav-height);
+            padding: 2rem;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--section-padding) 0;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-text);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--banner-accent);
+        }
+
+        /* Summary Section */
+        .summary {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .summary p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform var(--transition-speed);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-text);
+        }
+
+        .experience-card .company {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-card ul {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+
+        .experience-card li {
+            position: relative;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-text);
+        }
+
+        .experience-card li::before {
+            content: "▹";
+            position: absolute;
+            left: -1.5rem;
+            color: var(--banner-accent);
+        }
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            transition: transform var(--transition-speed);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+            padding: 0.5rem;
+        }
+
+        .school-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .education-info {
+            flex: 1;
+        }
+
+        .education-info h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-info p {
+            color: var(--secondary-text);
+        }
+
+        .education-year {
+            font-size: 1.1rem;
+            color: var(--banner-accent);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Certifications Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform var(--transition-speed);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-image {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 1rem;
+            transition: transform var(--transition-speed);
+        }
+
+        .cert-card:hover .cert-image {
+            transform: scale(1.05);
+        }
+
+        .cert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cert-info {
+            flex: 1;
+        }
+
+        .cert-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-info p {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 1rem;
+        }
+
+        .cert-link {
+            color: var(--banner-accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color var(--transition-speed);
+        }
+
+        .cert-link:hover {
+            color: var(--primary-text);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform var(--transition-speed);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-links {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(42, 43, 46, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .project-card:hover .project-links {
+            opacity: 1;
+        }
+
+        .project-links a {
+            color: var(--banner-text);
+            font-size: 1.5rem;
+            transition: transform var(--transition-speed);
+        }
+
+        .project-links a:hover {
+            transform: translateY(-3px);
+            color: var(--banner-accent);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            color: var(--secondary-text);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tech span {
+            font-size: 0.8rem;
+            color: var(--banner-accent);
+            background-color: rgba(137, 162, 184, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--banner-accent);
+        }
+
+        .skill-category ul {
+            list-style-type: none;
+        }
+
+        .skill-category li {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-text);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-category li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--banner-accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-banner {
+                padding: 0 1rem;
+            }
+
+            .profile-info h1 {
+                font-size: 1.1rem;
+            }
+
+            .profile-info p {
+                font-size: 0.8rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .education-card {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .school-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .cert-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .cert-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .education-card {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .school-logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-card {
+                padding: 1rem;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+                /*TryHackMe Dynamic Badge*/
+            .thm-badge {
+                position: absolute
+                bottom: 20px;
+                right: 20px;
+                z-index: 900;
+                overflow: hidden;
+                width: 340px;
+                height: 90px;
+                padding-right: 5px;
+            }
+            
+            .thm-badge iframe {
+                width: 100%;
+                height: 100%;
+            }
+
+            main {
+                position: relative;
+                min-height: 100vh;
+            }
+
+        @media (max-width: 768px) {
+            .thm-badge {
+                position: static;
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+            }
+        }
+</style>
+    </style>
+</head>
+<body>
+    <!-- Navigation Banner -->
+    <nav class="nav-banner">
+        <div class="nav-profile">
+            <div class="profile-image">
+                <img src="images/profile.jpg" alt="Cody Lee" onerror="this.src='https://via.placeholder.com/65'">
+            </div>
+            <div class="profile-info">
+                <h1>Cody Lee</h1>
+                <p>Amazonian | IT Manager | Aspiring Security Engineer</p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/codyblee" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/cbricel90" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="documents/Cody Lee Cover Letter.pdf" download aria-label="Download Cover Letter">
+                <i class="fas fa-file-pdf"></i>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+       
+        <!-- Summary Section -->
+        <section id="summary" class="summary">
+            <h2>About Me</h2>
+            <p>IT Manager with 7 years of enterprise technology experience at Amazon Transportation Services, leveraging a Bachelor's degree in Cybersecurity to transition into Security Engineering. Combines hands-on technical skills in Python development and security tools with enterprise-level understanding of infrastructure and operations. Activley expanding practical security experience through independent projects and continuous learning.</p>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>Regional IT Manager</h3>
+                    <div class="company">Amazon | Houston, TX | 2022-Present</div>
+                    <ul>
+                        <li>As IT Manager, I led a team of 9 engineers across Texas and Lousiana facilites, implementing optimizing gate automation, LiDAR security, and IoT solutions. I improved license plate detection accuracy by 15%, increasing autonomous gate transactions by 18%. I spearheaded a network camera standardization project, enhancing security monitoring and streamlining maintenance. I directed false positive testing for LiDAR intrusion detection systems and orchestrated deployment of Linux-based embedded systems and IoT devices across facilites. Additionally, I drove process improvement initiatives, optimizing operational efficiency and standardizing best practices for the engineering team. </li>
+                       
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>IT Support Engineer</h3>
+                    <div class="company">Amazon | Houston, TX | 2020-2022</div>
+                    <ul>
+                        <li>Single-threaded engineer supporting IoT infrastructre across 8 Houston-area facilites, specailing in trailer yard and gate automation systems. Establisehd foundational camera hardware standas as one of the first hardware SME's, developing comprehensive SOP's for installation and maintenance. Successfully launched automation systems at 3 new facilites while maintaining defect-free node status and exceptional uptime. Implemented preventative maintenance protocols and led troubleshooting efforts for Linux-based IoT systems and RFID technology, while consistently delivering high-quality support across multiple concurrent facility implementations.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>IT Technician</h3>
+                    <div class="company">Lee Computers | Humble, TX | 2012-2016</div>
+                    <ul>
+                        <li>Member of a two-person team delivering IT infrastructure solutions for Houston-area businesses, with emphasis on new site deployments and system implementations. Led comprehensive network installation for a waste management company's new office, including end-to-end network cabling and server configuration. Specialized in deploying UPS battery backup solutions, building custom server and workstation configurations, and implementing surveillance systems. Demonstrated hands-on expertise with Cat6 cabling, Linux systems, PC hardware configuration, and Night Owls surveillance platforms while maintaing high client satisfaction across multiple concurrent projects.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="school-logo">
+                        <img src="images/wgu-logo.png" alt="Western Governors University Logo" loading="lazy" onerror="this.src='https://via.placeholder.com/80'">
+                    </div>
+                    <div class="education-info">
+                        <h3>Western Governors University</h3>
+                        <p>Bachelor's of Cybersecurity</p>
+                    </div>
+                    <div class="education-year">2024-2023</div>
+                </div>
+
+                <div class="education-card">
+                    <div class="school-logo">
+                        <img src="images/lonestar-logo.png" alt="Lone Star College Logo" loading="lazy" onerror="this.src='https://via.placeholder.com/80'">
+                    </div>
+                    <div class="education-info">
+                        <h3>Lone Star College</h3>
+                        <p>Associate's of Applied Science</p>
+                    </div>
+                    <div class="education-year">2022-2020</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/a-plus.png" alt="CompTIA A+ Badge" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>CompTIA A+</h3>
+                        <p>Entry-level IT certification validating fundamental skills in hardware, operating systems, networking, and security</p>
+                        <a href="https://www.credly.com/badges/3c3a3e29-4eb6-48eb-a2c3-e1cae2d59b35/public_url" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on Credly
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/network-plus.png" alt="CompTIA Network+ Badge" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>CompTIA Network+</h3>
+                        <p>Entry-level IT certification validating networking knowledge of networking concepts, infrastructure, operations, and security on both virtual and physical networks</p>
+                        <a href="https://www.credly.com/badges/29bb4e95-14b2-46ca-8664-ed2ce0219ac0/public_url" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on Credly
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/security-plus.png" alt="CompTIA Security+ Badge" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>CompTIA Security+</h3>
+                        <p>Foundational cybersecurity certification validating network security, compliance, attack types, risk management, and security controls skills and knowledge</p>
+                        <a href="https://www.credly.com/badges/61f8b474-bb86-44ba-af0f-1617b0c70f2a/public_url" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on Credly
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/cysa-plus.png" alt="CompTIA CySA+ Badge" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>CompTIA CySA+</h3>
+                        <p>Advanced certification certifies intermediate security skills in threat detection, security monitoring, incident response, and management skill and knowledge</p>
+                        <a href="https://www.credly.com/badges/b7eb4cd8-a062-4a9d-a4f4-27fc7648493b/public_url" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on Credly
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/pentest-plus.png" alt="CompTIA PenTest+ Badge" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>CompTIA PenTest+</h3>
+                        <p>Advanced certification certifies offensive security skills including penetration testings, vulnerability scanning, and ethical hacking</p>
+                        <a href="https://www.credly.com/badges/c494ce68-6e5e-43a4-b212-1e72c6b75457/public_url" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on Credly
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/aws-cp.png" alt="AWS Cloud Practitioner Badge" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>AWS Cloud Practitioner</h3>
+                        <p>Foundational cloud certification validating fundamental AWS cloud concepts, services, security, architecture, and billing</p>
+                        <a href="https://www.credly.com/badges/3b55de3f-3e13-4809-b044-c2f485f5501a/public_url" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on Credly
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/aws-saa.png" alt="AWS Solutions Architect Associate Badge" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>AWS Solutions Architect Associate</h3>
+                        <p>Associate level certification validating skills in designing scalable, highly available AWS coud architectures and selecting appropiate services</p>
+                        <a href="https://www.credly.com/badges/d3cab44c-ad2b-4085-8da0-b5b015d89951/public_url" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on Credly
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/sscp.png" alt="ISC2 SSCP Badge" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>ISC2 SSCP</h3>
+                        <p>Systems Security Certified Practitioner certification validates operational security skills across access controls, security operations, risk, and cryptography</p>
+                        <a href="https://www.peoplecert.org/for-corporations/certificate-verification-service" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on Credly
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/itil.png" alt="ITIL V4 Foundations" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>ITIL V4 Foundations</h3>
+                        <p>Foundational certification validting knowledge of IT service management concepts, principles and practices</p>
+                        <a href="https://www.peoplecert.org/for-corporations/certificate-verification-service" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on PeopleCert
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="images/certs/lpi-linux.png" alt="LPI Linux Essentials" loading="lazy" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="cert-info">
+                        <h3>LPI Linux Essentials</h3>
+                        <p>Foundational certification certifies basic Linux operating system and command line knowledge</p>
+                        <a href="https://www.credly.com/badges/eefd4a80-2db5-4852-9044-52186a2e168e/public_url" class="cert-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-badge-check"></i>Verify on Credly
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/cloud-resume.png" alt="Cloud Resume Project" loading="lazy" onerror="this.src='https://via.placeholder.com/400/200'">
+                        <div class="project-links">
+                            <a href="#" target="_blank" aria-label="View GitHub Repository">
+                                <i class="fab fa-github"></i>
+                            </a>l6
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Cloud Resume Challenge</h3>
+                        <p>A serverless portfolio website built using AWS services including S3, Route 53, CloudFront, and WAF.</p>
+                        <div class="project-tech">
+                            <span>AWS</span>
+                            <span>Python</span>
+                            <span>GitHub</span>
+                            <span>Terrafrom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Security</h3>
+                    <ul>
+                        <li>Penetration Testing</li>
+                        <li>Vulnerability Assessment</li>
+                        <li>Network Security</li>
+                        <li>Security Tools (Kali Linux, Metasploit)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+                    <ul>
+                        <li>AWS Architecture</li>
+                        <li>Cloud Security</li>
+                        <li>Infrastructure as Code</li>
+                        <li>IoT Solutions</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Development</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Linux Systems</li>
+                        <li>Git Version Control</li>
+                        <li>CI/CD Pipelines</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <div class="thm-badge">
+            <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1561442" style='border:none;'></iframe>
+        </div>
+    </main>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add fade-in animation for sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
