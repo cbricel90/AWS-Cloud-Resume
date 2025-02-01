@@ -19,4 +19,6 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy to S3
-        run: aws s3 sync . s3://codyleetech.com --delete    # Replace with your bucket name
+        run: |
+          aws s3 sync index.html s3://codyleetech.com/index.html
+          aws s3 sync index.html s3://www.codyleetech.com/index.html
