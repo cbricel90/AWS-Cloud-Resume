@@ -21,6 +21,7 @@ This architecture provides:
 * High availability and reliability
 * Cost-effective static website hosting
 
+## Future State
 
 
 
