@@ -1,3 +1,20 @@
-# Images and Docs
-/documents
+# Images
 /images
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.psd
+*.ai
+
+# Documents
+/documents
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+
