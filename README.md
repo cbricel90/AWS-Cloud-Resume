@@ -1,5 +1,5 @@
 # AWS Cloud Hosted Resume
-***
+
 **CodyLeeTech**
 A dynamic portfolio website designed to showcase my professional journey and technical expertise in cybersecurity and software development. This platform serves as both a personal resume and a practical demonstration of my growing skillset across various technologies and programming languages.
 
