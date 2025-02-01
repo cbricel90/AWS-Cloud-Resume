@@ -20,5 +20,5 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync index.html s3://codyleetech.com/index.html
-          aws s3 sync index.html s3://www.codyleetech.com/index.html
+          aws s3 cp index.html s3://codyleetech.com/
+          aws s3 cp index.html s3://www.codyleetech.com/
