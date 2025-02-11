@@ -5,6 +5,7 @@ resource "aws_cloudfront_distribution" "cloud_resume_distribution" {
   }
 
   enabled             = true
+  is_ipv6_enabled     = true
   default_root_object = "index.html"
   price_class         = "PriceClass_100"
 
@@ -30,7 +31,9 @@ resource "aws_cloudfront_distribution" "cloud_resume_distribution" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+   acm_certificate_arn = arn:aws:acm:us-east-1:491085393478:certificate/92e7a779-9fa8-480e-889b-526b3238dddb
+   ssl_support_method = "sni-only"
+   minimum_protocol_version = "TLSv1.2_2021"
   }
 }
 
