@@ -23,6 +23,7 @@ This architecture provides:
 
 ## Future State
 
+Future plans include infrastructure management through Terraform, with exploration of deployment options on both EC2 instances and AWS Amplify platforms.
 
 
 
