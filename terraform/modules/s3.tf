@@ -23,6 +23,10 @@ resource "aws_s3_bucket_website_configuration" "cloud_resume_bucket_website" {
 
 resource "aws_s3_bucket" "cloud_resume_bucket_www" {
     bucket = "www.codyleetech.com"
+
+    tags = {
+        Name = "www-domain-bucket"
+    }
 }
 
 resource "aws_s3_bucket_versioning" "www_bucket_versioning" {
