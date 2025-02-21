@@ -10,16 +10,48 @@ The project is being developed iteratively, exploring different hosting solution
 
 ## Current Architecture
 
-My personal website leverages AWS's cloud infrastructure with the following architecture:
+This repository contains the infrastructure as code (IaC) for my personal website, built on AWS's cloud infrastructure. The architecture implements security best practices and leverages AWS's global content delivery capabilities.
+Core Components
 
-The website content is stored in Amazon S3 buckets, with separate buckets handling the main domain and subdomain. To enhance performance and security, Amazon CloudFront acts as a Content Delivery Network (CDN) to cache and serve the website content globally. Amazon Route 53 manages the DNS configuration, with its records directing traffic to the CloudFront distributions rather than directly to the S3 buckets. Access to the S3 buckets is restricted using Origin Access Control (OAC), ensuring that content can only be accessed through CloudFront, adding an additional layer of security.
+**Amazon S3**
 
-This architecture provides:
+* Separate buckets for main domain and subdomain hosting
+* Static website content storage
+* Access restricted through Origin Access Control (OAC)
 
-* Global content delivery with low latency
-* Enhanced security through controlled access patterns
-* High availability and reliability
-* Cost-effective static website hosting
+
+**Amazon CloudFront**
+
+* Global CDN for optimized content delivery
+* Acts as the primary entry point for all web traffic
+* Integrates with S3 through OAC for enhanced security
+* Caches content at edge locations for improved performance
+
+
+**Amazon Route 53**
+
+* DNS management and routing
+* Records configured to route traffic through CloudFront
+* Enables high availability through global DNS infrastructure
+
+
+**AWS WAF**
+
+* Web Application Firewall implementation
+* Geo-restriction policies aligned with CDN availability
+* Enhanced security through request filtering
+
+
+
+**Key Benefits**
+
+* Performance: Global content delivery with minimal latency through CloudFront's edge locations
+* Security: Multi-layered security approach including:
+  * Origin Access Control (OAC) for S3 access restriction
+  * CloudFront as the primary content gateway
+  * WAF for request filtering and geo-restrictions
+* Reliability: High availability through AWS's global infrastructure
+* Cost-Efficiency: Optimized static content hosting with pay-as-you-go pricing
 
 ## Future State
 
