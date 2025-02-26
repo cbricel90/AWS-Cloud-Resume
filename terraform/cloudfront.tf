@@ -11,7 +11,7 @@ resource "aws_acm_certificate_validation" "web_ssl_cert_valid" {
   certificate_arn = "aws_acm_certificate.web_ssl_cert.arn"
 }
 
-resource "aws_cloudfront_distribution" "www_web_cdn" {
+resource "aws_cloudfront_distribution" "web_cdn" {
   enabled = true
   is_ipv6_enabled = true
   default_root_object = "index.html"
@@ -19,7 +19,7 @@ resource "aws_cloudfront_distribution" "www_web_cdn" {
   
   origin {
     domain_name = aws_s3_bucket.web_bucket.bucket_regional_domain_name
-    origin_id = "S3-${aws_s3_bucket.web_bucket.id}"
+    origin_id = aws_s3_bucket.we
 
     s3_origin_config {
       origin_access_identity = aws_cloudfront_origin_access_identity.oai.aws_cloudfront_origin_access_identity_path
@@ -56,8 +56,8 @@ resource "aws_cloudfront_distribution" "www_web_cdn" {
   }
 }
 
-resource "aws_acm_certificate" "web_ssl_cert" {
-  domain_name = "codyleetech.com"
+resource "aws_acm_certificate" "www_web_ssl_cert" {
+  domain_name = "www.codyleetech.com"
   validation_method = "DNS"
 
   lifecycle {
@@ -65,11 +65,11 @@ resource "aws_acm_certificate" "web_ssl_cert" {
   }
 }
 
-resource "aws_acm_certificate_validation" "web_ssl_cert_valid" {
+resource "aws_acm_certificate_validation" "www_web_ssl_cert_valid" {
   certificate_arn = "aws_acm_certificate.web_ssl_cert.arn"
 }
 
-resource "aws_cloudfront_distribution" "web_cdn" {
+resource "aws_cloudfront_distribution" "www_web_cdn" {
   enabled = true
   is_ipv6_enabled = true
   default_root_object = "index.html"
